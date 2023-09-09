@@ -112,7 +112,7 @@ function MainHeader() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            CoderComm
+            Meitoc Connect
           </Typography>
 
           <Box sx={{ flexGrow: 1 }} />
