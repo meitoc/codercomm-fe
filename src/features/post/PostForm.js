@@ -19,6 +19,7 @@ const defaultValues = {
 };
 
 function PostForm() {
+  console.log(state=>state);//test
   const { isLoading } = useSelector((state) => state.post);
 
   const methods = useForm({

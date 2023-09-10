@@ -16,8 +16,11 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PostReaction from "./PostReaction";
 import CommentForm from "../comment/CommentForm";
 import CommentList from "../comment/CommentList";
+import { deletePost } from "./postSlice";
+import { useDispatch } from "react-redux";
 
 function PostCard({ post }) {
+  const dispatch = useDispatch();
   return (
     <Card>
       <CardHeader
@@ -45,7 +48,9 @@ function PostCard({ post }) {
           </Typography>
         }
         action={
-          <IconButton>
+          <IconButton 
+            onClick={()=>dispatch(deletePost({postId:post._id}))}
+          >
             <MoreVertIcon sx={{ fontSize: 30 }} />
           </IconButton>
         }
@@ -59,7 +64,7 @@ function PostCard({ post }) {
             sx={{
               borderRadius: 2,
               overflow: "hidden",
-              height: 300,
+              maxHeight: 800,
               "& img": { objectFit: "cover", width: 1, height: 1 },
             }}
           >
