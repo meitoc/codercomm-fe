@@ -14,14 +14,14 @@ function PostReaction({ post }) {
 
   return (
     <Stack direction="row" alignItems="center">
-      <IconButton onClick={() => handleClick("like")}>
+      <IconButton onClick={() => handleClick("like")} sx={{backgroundColor:"rgba(0,255,255,0.2)"}} >
         <ThumbUpRoundedIcon sx={{ fontSize: 20, color: "primary.main" }} />
       </IconButton>
       <Typography variant="h6" mr={1}>
         {post?.reactions?.like}
       </Typography>
 
-      <IconButton onClick={() => handleClick("dislike")}>
+      <IconButton onClick={() => handleClick("dislike")} sx={{backgroundColor:"rgba(255,0,0,0.2)"}}>
         <ThumbDownAltRoundedIcon sx={{ fontSize: 20, color: "error.main" }} />
       </IconButton>
       <Typography variant="h6">{post?.reactions?.dislike}</Typography>

@@ -7,20 +7,20 @@ import {
   Avatar,
   Typography,
   CardHeader,
-  IconButton,
+  // IconButton,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { fDate } from "../../utils/formatTime";
-
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import PostEditMenu from "./PostEditMenu";
+// import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PostReaction from "./PostReaction";
 import CommentForm from "../comment/CommentForm";
 import CommentList from "../comment/CommentList";
-import { deletePost } from "./postSlice";
-import { useDispatch } from "react-redux";
+// import { deletePost } from "./postSlice";
+// import { useDispatch } from "react-redux";
 
 function PostCard({ post }) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   return (
     <Card>
       <CardHeader
@@ -48,11 +48,7 @@ function PostCard({ post }) {
           </Typography>
         }
         action={
-          <IconButton 
-            onClick={()=>dispatch(deletePost({postId:post._id}))}
-          >
-            <MoreVertIcon sx={{ fontSize: 30 }} />
-          </IconButton>
+          <PostEditMenu postId={post._id} />
         }
       />
 
