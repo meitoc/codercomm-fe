@@ -12,15 +12,13 @@ import {
 import { Link as RouterLink } from "react-router-dom";
 import { fDate } from "../../utils/formatTime";
 import PostEditMenu from "./PostEditMenu";
-// import MoreVertIcon from "@mui/icons-material/MoreVert";
 import PostReaction from "./PostReaction";
 import CommentForm from "../comment/CommentForm";
 import CommentList from "../comment/CommentList";
-// import { deletePost } from "./postSlice";
-// import { useDispatch } from "react-redux";
-
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 function PostCard({ post }) {
-  // const dispatch = useDispatch();
+  const userId = useContext(AuthContext)?.user?._id;
   return (
     <Card>
       <CardHeader
@@ -48,7 +46,7 @@ function PostCard({ post }) {
           </Typography>
         }
         action={
-          <PostEditMenu postId={post._id} />
+          userId===post.author._id?<PostEditMenu postId={post._id} />:null
         }
       />
 

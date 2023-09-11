@@ -28,9 +28,8 @@ function CommentList({ postId }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (postId) dispatch(getComments({ postId }));
-  }, [postId, dispatch]);
-
+    if (postId) dispatch(getComments({ postId, page: currentPage>0?(currentPage<=totalPages?currentPage:totalPages):1}));
+  }, [postId, dispatch,currentPage,totalPages,totalComments]);
   let renderComments;
 
   if (commentsByPost) {
